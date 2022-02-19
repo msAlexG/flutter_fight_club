@@ -30,97 +30,100 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: 40),
-          Row(
-            children: [
-              SizedBox(width: 16),
-              Expanded(child: Center(child: Text('You'))),
-              SizedBox(width: 12),
-              Expanded(child: Center(child: Text('Enemy'))),
-              SizedBox(width: 16)
-            ],
-          ),
-          Expanded(child: SizedBox()),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 40),
-                    Text('Attack'.toUpperCase()),
-                    SizedBox(height: 13),
-                    BodyPartButton(
-                      bodyPart: BodyPart.head,
-                      selected: defendingBodyPart == BodyPart.head,
-                      BodyPartSetter: _selectDefendingBodyPart,
-                    ),
-                    SizedBox(height: 14),
-                    BodyPartButton(bodyPart: BodyPart.torso,
-                      selected: defendingBodyPart == BodyPart.torso,
-                      BodyPartSetter: _selectDefendingBodyPart,
-                    ),
-                  ],
+      body: ColoredBox(
+        color: Color.fromRGBO(213, 222, 240, 1),
+        child: Column(
+          children: [
+            SizedBox(height: 40),
+            Row(
+              children: [
+                SizedBox(width: 16),
+                Expanded(child: Center(child: Text('You'))),
+                SizedBox(width: 12),
+                Expanded(child: Center(child: Text('Enemy'))),
+                SizedBox(width: 16)
+              ],
+            ),
+            Expanded(child: SizedBox()),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 40),
+                      Text('Attack'.toUpperCase()),
+                      SizedBox(height: 13),
+                      BodyPartButton(
+                        bodyPart: BodyPart.head,
+                        selected: defendingBodyPart == BodyPart.head,
+                        BodyPartSetter: _selectDefendingBodyPart,
+                      ),
+                      SizedBox(height: 14),
+                      BodyPartButton(bodyPart: BodyPart.torso,
+                        selected: defendingBodyPart == BodyPart.torso,
+                        BodyPartSetter: _selectDefendingBodyPart,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 12,
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 40),
-                    Text('Attack'.toUpperCase()),
-                    SizedBox(height: 13),
-                    BodyPartButton(
-                      bodyPart: BodyPart.head,
-                      selected: attakingBodyPart == BodyPart.head,
-                      BodyPartSetter: _selectAttakingBodyPart,
-                    ),
-                    SizedBox(height: 14),
-                    BodyPartButton(bodyPart: BodyPart.torso,
-                      selected: attakingBodyPart == BodyPart.torso,
-                      BodyPartSetter: _selectAttakingBodyPart,
-                    ),
-                  ],
+                SizedBox(
+                  width: 12,
                 ),
-              ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 40),
+                      Text('Attack'.toUpperCase()),
+                      SizedBox(height: 13),
+                      BodyPartButton(
+                        bodyPart: BodyPart.head,
+                        selected: attakingBodyPart == BodyPart.head,
+                        BodyPartSetter: _selectAttakingBodyPart,
+                      ),
+                      SizedBox(height: 14),
+                      BodyPartButton(bodyPart: BodyPart.torso,
+                        selected: attakingBodyPart == BodyPart.torso,
+                        BodyPartSetter: _selectAttakingBodyPart,
+                      ),
+                    ],
+                  ),
+                ),
 
-              SizedBox(
-                width: 16,
-              )
-            ],
-          ),
-          SizedBox(height: 14),
-          Row(
-            children: [
-              SizedBox(width: 16),
-              Expanded(
-                  child: SizedBox(
-                    height: 40,
-                    child: ColoredBox(
-                      color: Color.fromRGBO(0, 0, 0, 0.87),
-                      child: Center(
-                          child: Text(
-                            'Go'.toUpperCase(),
-                            style: TextStyle(
-                              fontWeight: FontWeight.w900,
-                              fontSize: 16,
-                              color: Colors.white,
-                            ),
-                          )),
-                    ),
-                  )),
-              SizedBox(width: 16),
-            ],
-          ),
-          SizedBox(height: 40),
-        ],
+                SizedBox(
+                  width: 16,
+                )
+              ],
+            ),
+            SizedBox(height: 14),
+            Row(
+              children: [
+                SizedBox(width: 16),
+                Expanded(
+                    child: SizedBox(
+                      height: 40,
+                      child: ColoredBox(
+                        color: Color.fromRGBO(0, 0, 0, 0.87),
+                        child: Center(
+                            child: Text(
+                              'Go'.toUpperCase(),
+                              style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            )),
+                      ),
+                    )),
+                SizedBox(width: 16),
+              ],
+            ),
+            SizedBox(height: 40),
+          ],
+        ),
       ),
     );
   }
