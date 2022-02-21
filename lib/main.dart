@@ -118,6 +118,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       selected: defendingBodyPart == BodyPart.torso,
                       BodyPartSetter: _selectDefendingBodyPart,
                     ),
+
+
+
+                    SizedBox(height: 14),
+                    BodyPartButton(
+                      bodyPart: BodyPart.legs,
+                      selected: defendingBodyPart == BodyPart.legs,
+                      BodyPartSetter: _selectDefendingBodyPart,
+                    ),
                   ],
                 ),
               ),
@@ -140,6 +149,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     BodyPartButton(
                       bodyPart: BodyPart.torso,
                       selected: attakingBodyPart == BodyPart.torso,
+                      BodyPartSetter: _selectAttakingBodyPart,
+                    ),
+
+
+
+                    SizedBox(height: 14),
+                    BodyPartButton(
+                      bodyPart: BodyPart.legs,
+                      selected: attakingBodyPart == BodyPart.legs,
                       BodyPartSetter: _selectAttakingBodyPart,
                     ),
                   ],
@@ -221,7 +239,7 @@ class BodyPart {
 
   static const head = BodyPart._('Head');
   static const torso = BodyPart._('Torso');
-
+  static const legs = BodyPart._('legs');
   @override
   String toString() {
     return 'BodyPart{name: $name}';
