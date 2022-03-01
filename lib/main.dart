@@ -420,17 +420,20 @@ class LivesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.black,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: List.generate(overolLivesCount, (index) {
-          if (index < currentLivesCount) {
-            return Image.asset(FightClubIcons.heartFull, width: 18, height: 18);
-          } else
-            return Image.asset(FightClubIcons.heartEmpty, width: 18, height: 18);
-        }),
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: List.generate(overolLivesCount, (index) {
+        if (index < currentLivesCount) {
+          return Padding(
+            padding:  const EdgeInsets.symmetric(vertical: 2),
+            child: Image.asset(FightClubIcons.heartFull, width: 18, height: 18),
+          );
+        } else
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2),
+            child: Image.asset(FightClubIcons.heartEmpty, width: 18, height: 18),
+          );
+      }),
     );
   }
 }
