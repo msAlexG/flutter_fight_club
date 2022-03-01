@@ -228,7 +228,7 @@ class FightersInfo extends StatelessWidget {
               children: [
 
                 LivesWidget(
-                    overolLivesCount: maxLivesCount,
+                    overallLivesCount: maxLivesCount,
                     currentLivesCount: yourLivesCount),
                 Column(
                   children: [
@@ -250,7 +250,7 @@ class FightersInfo extends StatelessWidget {
                   ],
                 ),
                 LivesWidget(
-                    overolLivesCount: maxLivesCount,
+                    overallLivesCount: maxLivesCount,
                     currentLivesCount: enemyLivesCount)
 
               ],
@@ -406,16 +406,16 @@ class ControlsWidget extends StatelessWidget {
 }
 
 class LivesWidget extends StatelessWidget {
-  final int overolLivesCount;
+  final int overallLivesCount;
   final int currentLivesCount;
 
   const LivesWidget({
     Key? key,
-    required this.overolLivesCount,
+    required this.overallLivesCount,
     required this.currentLivesCount,
-  })  : assert(overolLivesCount >= 1),
+  })  : assert(overallLivesCount >= 1),
         assert(currentLivesCount >= 0),
-        assert(currentLivesCount <= overolLivesCount),
+        assert(currentLivesCount <= overallLivesCount),
         super(key: key);
 
   @override
@@ -424,7 +424,7 @@ class LivesWidget extends StatelessWidget {
       color: Colors.black,
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: List.generate(overolLivesCount, (index) {
+        children: List.generate(overallLivesCount, (index) {
           if (index < currentLivesCount) {
             return Padding(
               padding: index == 0 ? const EdgeInsets.only(top: 0)
