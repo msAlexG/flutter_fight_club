@@ -115,16 +115,17 @@ class MyHomePageState extends State<MyHomePage> {
         if (enemyLoseLives) {
           enemysLives -= 1;
 
-          final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
-          Infotext  =  "You hit enemy’s $attakingBodyPartName.\nEnemy’s attack was blocked.";
+
+          Infotext  =  "You hit enemy’s "+ attakingBodyPart!.name.toLowerCase() + ".\n" + "Enemy’s attack was blocked.";
         }
 
         if (youLoseLives) {
           yourLives -= 1;
 
 
-          final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
-          Infotext  =   "Your attack was blocked.\nEnemy hit your $attakingBodyPartName.  ";
+        
+          Infotext  =   "Your attack was blocked."+"\n" +"Enemy hit your " + attakingBodyPart!.name.toLowerCase() +".";
+          ///Infotext  =  "You hit enemy’s"+ attakingBodyPart!.name.toLowerCase() + ".\n" + "Enemy’s attack was blocked.";
         }
 
         whatEnemyDefends = BodyPart.random();
