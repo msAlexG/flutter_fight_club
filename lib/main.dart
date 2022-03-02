@@ -38,6 +38,7 @@ class MyHomePage extends StatefulWidget {
 
 class MyHomePageState extends State<MyHomePage> {
   static const maxLives = 5;
+  String Infotext = '';
 
   BodyPart? defendingBodyPart;
   BodyPart? attakingBodyPart;
@@ -66,7 +67,7 @@ class MyHomePageState extends State<MyHomePage> {
 
             Expanded(child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
-              child: SizedBox( width: double.infinity, height: double.infinity, child: ColoredBox(color: FightClubColors.centerbackground),),
+              child: SizedBox( width: double.infinity, height: double.infinity, child: ColoredBox(child: Center(child: Text(Infotext, style: TextStyle(fontSize: 10),)), color: FightClubColors.centerbackground), ),
             )),
 
 
@@ -104,6 +105,7 @@ class MyHomePageState extends State<MyHomePage> {
       setState(() {
         yourLives = maxLives;
         enemysLives = maxLives;
+        Infotext = '';
       });
     } else if (attakingBodyPart != null && defendingBodyPart != null) {
       setState(() {
@@ -112,10 +114,17 @@ class MyHomePageState extends State<MyHomePage> {
 
         if (enemyLoseLives) {
           enemysLives -= 1;
+
+          final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
+          Infotext  =  "You hit enemy’s $attakingBodyPartName. \n\nEnemy’s attack was blocked.";
         }
 
         if (youLoseLives) {
           yourLives -= 1;
+
+
+          final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
+          Infotext  =   "Your attack was blocked.\n\nEnemy hit your $attakingBodyPartName.  ";
         }
 
         whatEnemyDefends = BodyPart.random();
@@ -127,6 +136,35 @@ class MyHomePageState extends State<MyHomePage> {
         //   ColorButtonGo = Color.fromRGBO(0, 0, 0, 0.38);
       });
     }
+
+    if (yourLives == 0 && enemysLives == 0) {
+
+      setState(() {
+        Infotext = 'Draw';
+      });
+
+    }
+
+    else if (yourLives == 0 && enemysLives > 0){
+
+      setState(() {
+        Infotext = 'You lost';
+      });
+
+    }
+
+    else if (yourLives > 0 && enemysLives == 0){
+
+      setState(() {
+        Infotext = 'You won';
+      });
+    }
+
+
+
+
+
+
   }
 
   void _selectDefendingBodyPart(final BodyPart value) {
@@ -152,6 +190,52 @@ class MyHomePageState extends State<MyHomePage> {
         //  ColorButtonGo = Color.fromRGBO(0, 0, 0, 0.87);
       }
     });
+  }
+
+  String _getText() {
+
+    if (yourLives == 0 && enemysLives == 0) {
+      return   'Draw';
+    }
+
+    else if (yourLives == 0 && enemysLives > 0){
+      return   'You lost';
+    }
+
+    else if (yourLives > 0 && enemysLives == 0){
+      return   'You won';
+    }
+
+ // else if (yourLives > 0 && enemysLives > 0){
+ //     print(whatEnemyDefends);
+ //   if (attakingBodyPart != null && attakingBodyPart == whatEnemyDefends){
+ //     final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
+ //     return   "Your attack was blocked.\n\nEnemy hit your $attakingBodyPartName.  ";
+
+ //   }
+
+ //   else  if (attakingBodyPart != null && attakingBodyPart != whatEnemyDefends)  {
+ //     final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
+ //     return   "You hit enemy’s $attakingBodyPartName. \n\nEnemy’s attack was blocked.";
+ //       }
+
+
+ //  /// attakingBodyPart
+ //   print('enemy defend ' + whatEnemyDefends.name);
+ //   print('enemy attak ' + whatEnemyAttacks.name);
+
+ // //  print(attakingBodyPart);
+ // //  print(defendingBodyPart);
+
+
+ //   return   '';
+ // }
+
+      else {
+
+    return   '';
+    }
+
   }
 }
 
