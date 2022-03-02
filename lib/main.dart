@@ -114,17 +114,23 @@ class MyHomePageState extends State<MyHomePage> {
 
         if (enemyLoseLives) {
           enemysLives -= 1;
+          String firstString ="You hit enemy’s " + attakingBodyPart!.name.toLowerCase();
+          String secondString ="Enemy’s attack was blocked.";
+
+          Infotext  = firstString + "." + "\n" + secondString;
 
 
-          Infotext  =  "You hit enemy’s "+ attakingBodyPart!.name.toLowerCase() + ".\n" + "Enemy’s attack was blocked.";
         }
 
         if (youLoseLives) {
           yourLives -= 1;
+          String firstString ="Your attack was blocked.";
+          String secondString ="Enemy hit your " + defendingBodyPart!.name.toLowerCase();
 
 
-        
-          Infotext  =   "Your attack was blocked."+"\n" +"Enemy hit your " + attakingBodyPart!.name.toLowerCase() +".";
+          Infotext  =  firstString + "\n" + secondString + ".";
+
+
           ///Infotext  =  "You hit enemy’s"+ attakingBodyPart!.name.toLowerCase() + ".\n" + "Enemy’s attack was blocked.";
         }
 
