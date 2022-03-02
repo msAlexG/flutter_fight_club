@@ -116,7 +116,7 @@ class MyHomePageState extends State<MyHomePage> {
           enemysLives -= 1;
 
           final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
-          Infotext  =  "You hit enemy’s $attakingBodyPartName. \n\nEnemy’s attack was blocked.";
+          Infotext  =  "You hit enemy’s $attakingBodyPartName.\nEnemy’s attack was blocked.";
         }
 
         if (youLoseLives) {
@@ -124,7 +124,7 @@ class MyHomePageState extends State<MyHomePage> {
 
 
           final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
-          Infotext  =   "Your attack was blocked.\n\nEnemy hit your $attakingBodyPartName.  ";
+          Infotext  =   "Your attack was blocked.\nEnemy hit your $attakingBodyPartName.  ";
         }
 
         whatEnemyDefends = BodyPart.random();
@@ -192,51 +192,6 @@ class MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  String _getText() {
-
-    if (yourLives == 0 && enemysLives == 0) {
-      return   'Draw';
-    }
-
-    else if (yourLives == 0 && enemysLives > 0){
-      return   'You lost';
-    }
-
-    else if (yourLives > 0 && enemysLives == 0){
-      return   'You won';
-    }
-
- // else if (yourLives > 0 && enemysLives > 0){
- //     print(whatEnemyDefends);
- //   if (attakingBodyPart != null && attakingBodyPart == whatEnemyDefends){
- //     final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
- //     return   "Your attack was blocked.\n\nEnemy hit your $attakingBodyPartName.  ";
-
- //   }
-
- //   else  if (attakingBodyPart != null && attakingBodyPart != whatEnemyDefends)  {
- //     final String? attakingBodyPartName = attakingBodyPart?.name.toLowerCase();
- //     return   "You hit enemy’s $attakingBodyPartName. \n\nEnemy’s attack was blocked.";
- //       }
-
-
- //  /// attakingBodyPart
- //   print('enemy defend ' + whatEnemyDefends.name);
- //   print('enemy attak ' + whatEnemyAttacks.name);
-
- // //  print(attakingBodyPart);
- // //  print(defendingBodyPart);
-
-
- //   return   '';
- // }
-
-      else {
-
-    return   '';
-    }
-
-  }
 }
 
 class GoButton extends StatelessWidget {
