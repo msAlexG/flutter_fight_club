@@ -105,7 +105,7 @@ class MyHomePageState extends State<MyHomePage> {
       setState(() {
         yourLives = maxLives;
         enemysLives = maxLives;
-        Infotext = '';
+        //Infotext = '';
       });
     } else if (attakingBodyPart != null && defendingBodyPart != null) {
       setState(() {
@@ -114,8 +114,8 @@ class MyHomePageState extends State<MyHomePage> {
 
         if (enemyLoseLives) {
           enemysLives -= 1;
-          String firstString ="You hit enemy’s " + attakingBodyPart!.name.toLowerCase();
-          String secondString ="Enemy’s attack was blocked.";
+          String firstString = "You hit enemy’s " + attakingBodyPart!.name.toLowerCase();
+          String secondString = "Enemy’s attack was blocked.";
 
           Infotext  = firstString + "." + "\n" + secondString;
 
@@ -129,7 +129,7 @@ class MyHomePageState extends State<MyHomePage> {
 
 
           Infotext  =  firstString + "\n" + secondString + ".";
-
+          print(Infotext);
 
           ///Infotext  =  "You hit enemy’s"+ attakingBodyPart!.name.toLowerCase() + ".\n" + "Enemy’s attack was blocked.";
         }
