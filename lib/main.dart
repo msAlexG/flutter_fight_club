@@ -116,14 +116,14 @@ class MyHomePageState extends State<MyHomePage> {
       });
     } else if (attakingBodyPart != null && defendingBodyPart != null) {
       setState(() {
-        final bool enemyLoseLives = attakingBodyPart != whatEnemyDefends;
-        final bool youLoseLives = defendingBodyPart != whatEnemyAttacks;
+        final bool enemyLoseLife = attakingBodyPart != whatEnemyDefends;
+        final bool youLoseLife = defendingBodyPart != whatEnemyAttacks;
 
-        if (enemyLoseLives) {
+        if (enemyLoseLife) {
           enemysLives -= 1;
         }
 
-        if (youLoseLives) {
+        if (youLoseLife) {
           yourLives -= 1;
         }
 
@@ -134,10 +134,10 @@ class MyHomePageState extends State<MyHomePage> {
         } else if (enemysLives == 0) {
           Infotext = 'You won';
         } else {
-          String first = enemyLoseLives
+          String first = enemyLoseLife
               ? "You hit enemy's ${attakingBodyPart!.name.toLowerCase()}."
               : "Your attack was blocked.";
-          String second = youLoseLives
+          String second = youLoseLife
               ? "Enemy hit your ${whatEnemyAttacks.name.toLowerCase()}."
               : "Enemy’s attack was blocked.";
           Infotext = "$first\n$second";
