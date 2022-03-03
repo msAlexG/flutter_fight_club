@@ -112,7 +112,6 @@ class MyHomePageState extends State<MyHomePage> {
       setState(() {
         yourLives = maxLives;
         enemysLives = maxLives;
-        Infotext = '';
       });
     } else if (attakingBodyPart != null && defendingBodyPart != null) {
       setState(() {
