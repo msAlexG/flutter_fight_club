@@ -63,21 +63,23 @@ class MyHomePageState extends State<MyHomePage> {
                 enemyLivesCount: enemysLives,
                 yourLivesCount: yourLives,
                 maxLivesCount: maxLives),
+            const SizedBox(height: 30),
             Expanded(
                 child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
-              child: SizedBox(
-                width: double.infinity,
-                height: double.infinity,
-                child: ColoredBox(
+              padding: const EdgeInsets.symmetric( horizontal: 16),
+              child: ColoredBox(
+                 color: FightClubColors.centerbackground,
+                  child: SizedBox(
+                    width: double.infinity,
                     child: Center(
                         child: Text(
                       Infotext,
                       style: TextStyle(fontSize: 10),
                     )),
-                    color: FightClubColors.centerbackground),
-              ),
+                  ),
+                  ),
             )),
+            const SizedBox(height: 30),
             ControlsWidget(
                 attakingBodyPart: attakingBodyPart,
                 defendingBodyPart: defendingBodyPart,
@@ -228,61 +230,58 @@ class FightersInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.yellow,
-      child: SizedBox(
-        height: 160,
-        child: Stack(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                    child: ColoredBox(
-                  color: FightClubColors.youbackground,
-                )),
-                Expanded(
-                    child: ColoredBox(
-                  color: FightClubColors.enemybackground,
-                )),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                LivesWidget(
-                    overallLivesCount: maxLivesCount,
-                    currentLivesCount: yourLivesCount),
-                Column(
-                  children: [
-                    const SizedBox(height: 16),
-                    Text('You',
-                        style: TextStyle(color: FightClubColors.darkGreyText)),
-                    SizedBox(height: 12),
-                    Image.asset(FightClubImages.youAvatar,
-                        width: 92, height: 92)
-                  ],
-                ),
-                ColoredBox(
-                    color: Colors.green,
-                    child: SizedBox(width: 44, height: 44)),
-                Column(
-                  children: [
-                    SizedBox(height: 16),
-                    Text('Enemy',
-                        style: TextStyle(color: FightClubColors.darkGreyText)),
-                    SizedBox(height: 12),
-                    Image.asset(FightClubImages.enemyAvatar,
-                        width: 92, height: 92)
-                  ],
-                ),
-                LivesWidget(
-                    overallLivesCount: maxLivesCount,
-                    currentLivesCount: enemyLivesCount)
-              ],
-            ),
-          ],
-        ),
+    return SizedBox(
+      height: 160,
+      child: Stack(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                  child: ColoredBox(
+                color: FightClubColors.youbackground,
+              )),
+              Expanded(
+                  child: ColoredBox(
+                color: FightClubColors.enemybackground,
+              )),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              LivesWidget(
+                  overallLivesCount: maxLivesCount,
+                  currentLivesCount: yourLivesCount),
+              Column(
+                children: [
+                  const SizedBox(height: 16),
+                  Text('You',
+                      style: TextStyle(color: FightClubColors.darkGreyText)),
+                  SizedBox(height: 12),
+                  Image.asset(FightClubImages.youAvatar,
+                      width: 92, height: 92)
+                ],
+              ),
+              ColoredBox(
+                  color: Colors.green,
+                  child: SizedBox(width: 44, height: 44)),
+              Column(
+                children: [
+                  SizedBox(height: 16),
+                  Text('Enemy',
+                      style: TextStyle(color: FightClubColors.darkGreyText)),
+                  SizedBox(height: 12),
+                  Image.asset(FightClubImages.enemyAvatar,
+                      width: 92, height: 92)
+                ],
+              ),
+              LivesWidget(
+                  overallLivesCount: maxLivesCount,
+                  currentLivesCount: enemyLivesCount)
+            ],
+          ),
+        ],
       ),
     );
   }
