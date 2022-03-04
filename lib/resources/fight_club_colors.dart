@@ -11,6 +11,8 @@ class FightClubColors {
   static const Color enemybackground = Color.fromRGBO(197, 209, 234, 1);
   static const Color youbackground = Color.fromRGBO(255, 255, 255, 1);
   static const Color centerbackground = Color.fromRGBO(197, 209, 234, 1);
+  static const Color colorwhite = Color.fromRGBO(255, 255, 255, 1);
+
 
 
 
