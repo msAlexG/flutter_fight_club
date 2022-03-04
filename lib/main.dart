@@ -88,7 +88,7 @@ class MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 14),
             GoButton(
                 text: yourLives == 0 || enemysLives == 0
-                    ? 'Start new games'
+                    ? 'Start new game'
                     : 'Go',
                 onTap: _onGoButtonClicked,
                 color: _getGoButtonColor()),
