@@ -59,7 +59,8 @@ class _MainPageContent extends StatelessWidget {
                       SizedBox(height: 12),
                       FightResultWidget(
                           fightResult: FightResult.won,
-                          resultcolor: Color.fromRGBO(3, 136, 0, 1)),
+                        //  resultcolor: Color.fromRGBO(3, 136, 0, 1)
+                      ),
                     ],
                   );
                 } else if(snapshot.data! == 'Lost') {
@@ -72,7 +73,8 @@ class _MainPageContent extends StatelessWidget {
                       SizedBox(height: 12),
                       FightResultWidget(
                           fightResult: FightResult.lost,
-                          resultcolor: Color.fromRGBO(234, 44, 44, 1)),
+                         // resultcolor: Color.fromRGBO(234, 44, 44, 1)
+                      ),
                     ],
                   );
                 }
@@ -87,7 +89,8 @@ class _MainPageContent extends StatelessWidget {
                       SizedBox(height: 12),
                       FightResultWidget(
                           fightResult: FightResult.draw,
-                          resultcolor: Color.fromRGBO(28, 121, 206, 1)),
+                         // resultcolor: Color.fromRGBO(28, 121, 206, 1)
+                      ),
                     ],
                   );
                 }
