@@ -48,52 +48,29 @@ class _MainPageContent extends StatelessWidget {
                 if (!snapshot.hasData || snapshot.data == null) {
                   return const SizedBox();
                 }
-
+                final FightResult fightResult;
                 if (snapshot.data! == 'Won') {
-                  return Column(
-                    children: [
-                      Text(
-                        'Last fight result',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                      SizedBox(height: 12),
-                      FightResultWidget(
-                          fightResult: FightResult.won,
-                        //  resultcolor: Color.fromRGBO(3, 136, 0, 1)
-                      ),
-                    ],
-                  );
-                } else if(snapshot.data! == 'Lost') {
-                  return Column(
-                    children: [
-                      Text(
-                        'Last fight result',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                      SizedBox(height: 12),
-                      FightResultWidget(
-                          fightResult: FightResult.lost,
-                         // resultcolor: Color.fromRGBO(234, 44, 44, 1)
-                      ),
-                    ],
-                  );
+                  fightResult = FightResult.won;
+                } else if (snapshot.data! == 'Lost') {
+                  fightResult = FightResult.lost;
+                } else {
+                  fightResult = FightResult.draw;
                 }
 
-                else{
-                  return Column(
-                    children: [
-                      Text(
-                        'Last fight result',
-                        style: TextStyle(fontSize: 14),
-                      ),
-                      SizedBox(height: 12),
-                      FightResultWidget(
-                          fightResult: FightResult.draw,
-                         // resultcolor: Color.fromRGBO(28, 121, 206, 1)
-                      ),
-                    ],
-                  );
-                }
+                //       fightResult.  = snapshot.data;
+                return Column(
+                  children: [
+                    Text(
+                      'Last fight result',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    SizedBox(height: 12),
+                    FightResultWidget(
+                      fightResult: fightResult,
+                      //  resultcolor: Color.fromRGBO(3, 136, 0, 1)
+                    ),
+                  ],
+                );
               },
             ),
             Expanded(child: SizedBox()),
