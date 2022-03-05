@@ -62,7 +62,7 @@ class _MainPageContent extends StatelessWidget {
                   children: [
                     Text(
                       'Last fight result',
-                      style: TextStyle(fontSize: 14),
+                      style: TextStyle(fontSize: 14, color: FightClubColors.darkGreyText, fontWeight: FontWeight.w400),
                     ),
                     SizedBox(height: 12),
                     FightResultWidget(
