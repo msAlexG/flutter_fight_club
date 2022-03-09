@@ -114,11 +114,11 @@ class FightPageState extends State<FightPage> {
                 'last_fight_result', fightResult.result);
 
             if (fightResult.result == 'Won') {
-              getFightResultCount(fightResult: 'stats_won');
+              _getCountWon();
             } else if (fightResult.result == 'Lost') {
-              getFightResultCount(fightResult: 'stats_lost');
+              _getCountLost();
             } else {
-              getFightResultCount(fightResult: 'stats_draw');
+              _getCountDraw();
             }
           });
         }
@@ -197,6 +197,73 @@ class FightPageState extends State<FightPage> {
 
       }
     });
+  }
+
+  void _getCountWon() {
+
+    SharedPreferences.getInstance().then((SharedPreferences) {
+      return SharedPreferences.getInt('stats_won');
+    }).then((value) {
+      if (value != null) {
+        value++;
+        SharedPreferences.getInstance().then((SharedPreferences) {
+          SharedPreferences.setInt('stats_won', value!);
+        });
+        //
+      } else {
+        SharedPreferences.getInstance().then((SharedPreferences) {
+          SharedPreferences.setInt('stats_won', 1);
+        });
+
+
+      }
+    });
+
+  }
+
+  void _getCountLost() {
+
+    SharedPreferences.getInstance().then((SharedPreferences) {
+      return SharedPreferences.getInt('stats_lost');
+    }).then((value) {
+      if (value != null) {
+        value++;
+        SharedPreferences.getInstance().then((SharedPreferences) {
+          SharedPreferences.setInt('stats_lost', value!);
+        });
+        //
+      } else {
+        SharedPreferences.getInstance().then((SharedPreferences) {
+          SharedPreferences.setInt('stats_lost', 1);
+        });
+
+
+      }
+    });
+
+
+  }
+
+  void _getCountDraw() {
+
+    SharedPreferences.getInstance().then((SharedPreferences) {
+      return SharedPreferences.getInt('stats_draw');
+    }).then((value) {
+      if (value != null) {
+        value++;
+        SharedPreferences.getInstance().then((SharedPreferences) {
+          SharedPreferences.setInt('stats_draw', value!);
+        });
+        //
+      } else {
+        SharedPreferences.getInstance().then((SharedPreferences) {
+          SharedPreferences.setInt('stats_draw', 1);
+        });
+
+
+      }
+    });
+
   }
 }
 
