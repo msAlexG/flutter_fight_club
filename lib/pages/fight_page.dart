@@ -114,11 +114,11 @@ class FightPageState extends State<FightPage> {
                 'last_fight_result', fightResult.result);
 
             if (fightResult.result == 'Won') {
-              _getFightResultCount(fightResult: 'stats_won');
+              getFightResultCount(fightResult: 'stats_won');
             } else if (fightResult.result == 'Lost') {
-              _getFightResultCount(fightResult: 'stats_lost');
+              getFightResultCount(fightResult: 'stats_lost');
             } else {
-              _getFightResultCount(fightResult: 'stats_draw');
+              getFightResultCount(fightResult: 'stats_draw');
             }
           });
         }
@@ -179,13 +179,14 @@ class FightPageState extends State<FightPage> {
     });
   }
 
-  void _getFightResultCount({required String fightResult}) {
+  void getFightResultCount({required String fightResult}) {
     SharedPreferences.getInstance().then((SharedPreferences) {
       return SharedPreferences.getInt(fightResult);
     }).then((value) {
       if (value != null) {
+        value++;
         SharedPreferences.getInstance().then((SharedPreferences) {
-          SharedPreferences.setInt(fightResult, value + 1);
+          SharedPreferences.setInt(fightResult, value!);
         });
         //
       } else {
