@@ -131,7 +131,7 @@ class FightPageState extends State<FightPage> {
   }
 
   String _calculateCentreText(
-      final bool youLoseLife, final bool enemyLoseLife) {
+      final bool youLoseLife, final b ool enemyLoseLife) {
     if (enemysLives == 0 && yourLives == 0) {
       return 'Draw';
     } else if (yourLives == 0) {

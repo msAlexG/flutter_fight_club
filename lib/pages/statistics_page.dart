@@ -34,7 +34,7 @@ class _StatisticsPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            Expanded(child: SizedBox()),
+            Expanded(child: SizedBox.shrink()),
             FutureBuilder<SharedPreferences>(
               future: SharedPreferences.getInstance(),
               builder: (context, snapshot) {
@@ -72,7 +72,7 @@ class _StatisticsPage extends StatelessWidget {
 
 
 
-            Expanded(child: SizedBox()),
+            Expanded(child: SizedBox.shrink()),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: SecondaryActionButton(
