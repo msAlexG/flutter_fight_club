@@ -112,14 +112,9 @@ class FightPageState extends State<FightPage> {
           SharedPreferences.getInstance().then((SharedPreferences) {
             SharedPreferences.setString(
                 'last_fight_result', fightResult.result);
-
-            if (fightResult.result == 'Won') {
-              _getCountWon();
-            } else if (fightResult.result == 'Lost') {
-              _getCountLost();
-            } else {
-              _getCountDraw();
-            }
+            final String key = 'stats_${fightResult.result.toLowerCase()}';
+            final    int currentValue =  SharedPreferences.getInt(key) ?? 0;
+            SharedPreferences.setInt(key, currentValue + 1);
           });
         }
         centerText = _calculateCentreText(youLoseLife, enemyLoseLife);
@@ -179,92 +174,6 @@ class FightPageState extends State<FightPage> {
     });
   }
 
-  void getFightResultCount({required String fightResult}) {
-    SharedPreferences.getInstance().then((SharedPreferences) {
-      return SharedPreferences.getInt(fightResult);
-    }).then((value) {
-      if (value != null) {
-        value++;
-        SharedPreferences.getInstance().then((SharedPreferences) {
-          SharedPreferences.setInt(fightResult, value!);
-        });
-        //
-      } else {
-        SharedPreferences.getInstance().then((SharedPreferences) {
-          SharedPreferences.setInt(fightResult, 1);
-        });
-
-
-      }
-    });
-  }
-
-  void _getCountWon() {
-
-    SharedPreferences.getInstance().then((SharedPreferences) {
-      return SharedPreferences.getInt('stats_won');
-    }).then((value) {
-      if (value != null) {
-        value++;
-        SharedPreferences.getInstance().then((SharedPreferences) {
-          SharedPreferences.setInt('stats_won', value!);
-        });
-        //
-      } else {
-        SharedPreferences.getInstance().then((SharedPreferences) {
-          SharedPreferences.setInt('stats_won', 1);
-        });
-
-
-      }
-    });
-
-  }
-
-  void _getCountLost() {
-
-    SharedPreferences.getInstance().then((SharedPreferences) {
-      return SharedPreferences.getInt('stats_lost');
-    }).then((value) {
-      if (value != null) {
-        value++;
-        SharedPreferences.getInstance().then((SharedPreferences) {
-          SharedPreferences.setInt('stats_lost', value!);
-        });
-        //
-      } else {
-        SharedPreferences.getInstance().then((SharedPreferences) {
-          SharedPreferences.setInt('stats_lost', 1);
-        });
-
-
-      }
-    });
-
-
-  }
-
-  void _getCountDraw() {
-
-    SharedPreferences.getInstance().then((SharedPreferences) {
-      return SharedPreferences.getInt('stats_draw');
-    }).then((value) {
-      if (value != null) {
-        value++;
-        SharedPreferences.getInstance().then((SharedPreferences) {
-          SharedPreferences.setInt('stats_draw', value!);
-        });
-        //
-      } else {
-        SharedPreferences.getInstance().then((SharedPreferences) {
-          SharedPreferences.setInt('stats_draw', 1);
-        });
-
-
-      }
-    });
-
-  }
 }
 
 class FightersInfo extends StatelessWidget {
