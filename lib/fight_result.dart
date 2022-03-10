@@ -7,7 +7,7 @@ class FightResult{
   static const lost = FightResult._('Lost');
   static const draw = FightResult._('Draw');
 
-  static FightResult ?calculateResult(final int yourLives, final int enemysLives ) {
+  static FightResult? calculateResult(final int yourLives, final int enemysLives ) {
     if (yourLives == 0 && enemysLives == 0) {
  return draw;
     }
@@ -19,6 +19,7 @@ class FightResult{
       return won;
 
     }
+    return null;
   }
     
 
