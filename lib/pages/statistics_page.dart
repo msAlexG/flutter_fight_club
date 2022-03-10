@@ -9,15 +9,6 @@ class StatisticsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _StatisticsPage();
-  }
-}
-
-class _StatisticsPage extends StatelessWidget {
-  const _StatisticsPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: FightClubColors.background,
       body: SafeArea(
