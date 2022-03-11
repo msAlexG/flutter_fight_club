@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../resources/fight_club_colors.dart';
+import 'package:flutter_fight_club/resources/fight_club_colors.dart';
 
 class SecondaryActionButton extends StatelessWidget {
   final String text;
