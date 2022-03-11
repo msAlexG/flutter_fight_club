@@ -15,6 +15,7 @@ class FightResultWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return
 
+
       SizedBox(
         height: 140,
         child: Stack(

@@ -2,12 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/fight_result.dart';
+import 'package:flutter_fight_club/resources/fight_club_colors.dart';
+import 'package:flutter_fight_club/resources/fight_club_icons.dart';
+import 'package:flutter_fight_club/resources/fight_club_images.dart';
+import 'package:flutter_fight_club/widgets/action_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../resources/fight_club_colors.dart';
-import '../resources/fight_club_icons.dart';
-import '../resources/fight_club_images.dart';
-import '../widgets/action_button.dart';
+
+
 
 class FightPage extends StatefulWidget {
   const FightPage({Key? key}) : super(key: key);
