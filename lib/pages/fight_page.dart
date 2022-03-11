@@ -112,8 +112,9 @@ class FightPageState extends State<FightPage> {
           SharedPreferences.getInstance().then((SharedPreferences) {
             SharedPreferences.setString(
                 'last_fight_result', fightResult.result);
+
             final String key = 'stats_${fightResult.result.toLowerCase()}';
-            final    int currentValue =  SharedPreferences.getInt(key) ?? 0;
+            final int currentValue = SharedPreferences.getInt(key) ?? 0;
             SharedPreferences.setInt(key, currentValue + 1);
           });
         }
@@ -150,30 +151,27 @@ class FightPageState extends State<FightPage> {
   }
 
   void _selectDefendingBodyPart(final BodyPart value) {
-    setState(() {
+
       if (yourLives == 0 || enemysLives == 0) {
         return;
       }
-
+      setState(() {
       defendingBodyPart = value;
-      if (attakingBodyPart != null && defendingBodyPart != null) {
-        //  ColorButtonGo = Color.fromRGBO(0, 0, 0, 0.87);
-      }
-    });
+      });
+
+
   }
 
   void _selectAttakingBodyPart(final BodyPart value) {
-    setState(() {
+
       if (yourLives == 0 || enemysLives == 0) {
         return;
       }
+      setState(() {
       attakingBodyPart = value;
-      if (attakingBodyPart != null && defendingBodyPart != null) {
-        //  ColorButtonGo = Color.fromRGBO(0, 0, 0, 0.87);
-      }
+
     });
   }
-
 }
 
 class FightersInfo extends StatelessWidget {
